@@ -1,26 +1,27 @@
-const mongoose=require("mongoose");
+const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables from .env file
 
-mongoose.connect("mongodb://localhost:27017/login")
-.then(()=>{
-    console.log("mongo connected");
-})
-.catch(()=>{
-    console.log("failed to connect");
-})
+const mongoURI = process.env.MONGO_URI; // Access the connection string from environment variables
 
-const login_schema=new mongoose.Schema(
-    {
-        name:{
-            type:String,
-            required:true
-        },
-        password:{
-            type:String,
-            required:true
-        }
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('MongoDB connected');
+    })
+    .catch(err => {
+        console.error('Failed to connect', err);
+    });
+
+const loginSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
     }
-)
+});
 
-const collection=new mongoose.model("logincollection",login_schema);
+const Collection = mongoose.model('logincollection', loginSchema);
 
-module.exports=collection;
+module.exports = Collection;
