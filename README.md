@@ -1,16 +1,16 @@
 # Node-Mongo-Project
 A simple login and signup application built using Node.js and MongoDB.
 
-Project Structure
+# Project Structure
 
-node-mongo-project/
-├── form/
-│   ├── public/
-│   ├── src/
-│   └── templates/
-├── .gitignore
-├── package.json
-└── README.md
+node-mongo-project/ <br/>
+├── form/   </br>
+│   ├── public/  </br>
+│   ├── src/   </br>
+│   └── templates/  </br>
+├── .gitignore  </br>
+├── package.json  </br>
+└── README.md  </br>
 
 # Getting Started
 To get started with this project, follow these steps:
